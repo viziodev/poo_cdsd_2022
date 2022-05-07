@@ -1,16 +1,19 @@
 <?php 
-class User{
+
+ namespace App\Models;
+ use App\Core\Model;
+class User extends Model{
     //Attributs 
-     private int   $id;
-     private string $login;
-     private string $password;
-     private string $role;
+     protected int   $id;
+     protected string $login;
+     protected string $password;
+     protected string $role;
 
     //Methodes
     //Constructeur
     public function __construct()
     {
-        
+       self::$table="user" ;
     }
     //Getters => Obtenir la valeur d'un attribut private ou protected
                 //a partir de l'interface de la classe

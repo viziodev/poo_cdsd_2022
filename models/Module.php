@@ -1,8 +1,22 @@
 <?php 
+ namespace App\Models;
 class Module{
    private int $id;  
    private string $libelle;
 
+
+   //Association 
+   //ManyToMany avec Professeur
+     //Un Objet de type Module contient plusieurs objets de type professeur
+     public function professeurs():array{
+         return [];
+     }
+   //OneToMany avec Cours
+     //Un Objet de type Module contient plusieurs objets de type Cours
+
+     public function cours():array{
+        return [];
+      }
    /**
     * Get the value of id
     */ 

@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+use App\Core\DataBase;
+use App\Exceptions\BdConnexionException;
 
 require_once("../vendor/autoload.php");
 
@@ -30,9 +33,12 @@ require_once("../vendor/autoload.php");
         //https://packagist.org/
         //Hub de dependance =>site beaucoup de dependance suivant le langage
 
-use App\Models\Module;
+/* use App\Models\Module;
 use App\Models\RP;
-$rp =new RP();
+$rp =new RP(); */
+
+    $db =new DataBase;
+    $db->openConnexion();
 
 
 

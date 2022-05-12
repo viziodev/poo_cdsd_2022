@@ -24,7 +24,6 @@ class Cours extends Model{
         public function module():Module{
             $sql="select m.* from cours c, 
                   module m where c.module_id=m.id and c.id={$this->id}";
-
             return new Module();
         }
       //ManyToOne avec Professeur

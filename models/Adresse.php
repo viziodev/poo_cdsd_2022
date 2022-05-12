@@ -1,5 +1,5 @@
 <?php
- namespace App\Models;
+namespace App\Models;
 class Adresse{
        private int $id;
        private string $quartier;

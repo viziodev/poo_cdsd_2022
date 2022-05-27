@@ -15,4 +15,10 @@ class Request {
     public function isGet():bool{
         return $_SERVER["REQUEST_METHOD"]=="GET";
     }
+
+   public function request():array{
+          return $_POST;
+   }
+
+
 }

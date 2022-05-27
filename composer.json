@@ -14,5 +14,7 @@
             "email": "viziodev03@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "rakit/validation": "^1.4"
+    }
 }

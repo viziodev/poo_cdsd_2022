@@ -5,3 +5,8 @@
      echo"</pre>";
       die();
    }
+
+  function redirectToRoute(string $uri){
+      $url=WEB_URL."".$uri;
+      header("location:$url");
+  }

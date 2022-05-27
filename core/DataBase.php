@@ -38,9 +38,9 @@ class DataBase{
          $stm=$this->pdo->prepare($sql);
          $stm->execute($data);
         if($single){
-            $result=$stm->fetch();
+            $result=$stm->fetch(\PDO::FETCH_ASSOC);//Both
         }else{
-            $result=$stm->fetchAll();
+            $result=$stm->fetchAll(\PDO::FETCH_ASSOC);
         }
         $this->closeConnexion();
         return  $result;

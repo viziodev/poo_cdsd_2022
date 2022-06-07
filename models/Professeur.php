@@ -21,6 +21,7 @@ class Professeur extends User{
       //OneToOne avec adresse
           //Un Objet de type Professeur contient un objet de type Adresse
           public function adresse():Adresse{
+               
               return new Adresse();
           }
       //ManyToMany avec Module
@@ -49,12 +50,12 @@ class Professeur extends User{
      }
 
      public static  function selectAll(){
-         $sql="select *  from ? where role like ? ";
+         $sql="select *  from ? where roles like ? ";
          return parent::database()->executeSelect($sql,[parent::table(), parent::$role]);
      }
 
      public function insert(){
-        $sql="INSERT INTO ".parent::table()." (`login`,`password`, `grade`, `ville`, `quartier`, `role`,nom_complet)
+        $sql="INSERT INTO ".parent::table()." (`login`,`password`, `grade`, `ville`, `quartier`, `roles`,nomComplet)
              VALUES (?,?,?,?,?,?,?);";
         return parent::database()->executeUpdate($sql,[
                         $this->login,$this->password,$this->grade,

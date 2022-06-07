@@ -18,8 +18,11 @@ class Classe extends Model{
         $sql="select c.* from cours c, 
               classe cl where c.classe_id=cl.id and cl.id=? 
               ";
-            return  parent::selectWhere($sql,[$this->id]);
+            return  parent::selectWhere($sql,[$this->id],false,Cours::class);
        }
+
+    
+
     /**
      * Get the value of id
      */ 
@@ -107,5 +110,15 @@ class Classe extends Model{
                   $this->filiere,
                   $this->niveau,
          ]);
+    }
+
+    public function update(){
+        $sql="UPDATE ".parent::table()." SET `libelle` = ?, `filiere` = ?, `niveau` = ? WHERE `classe`.`id` = ? ";
+        return parent::database()->executeUpdate($sql,[
+            $this->libelle,
+            $this->filiere,
+            $this->niveau,
+            $this->id
+       ]);
     }
 }

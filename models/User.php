@@ -72,26 +72,20 @@ class User extends Model{
      /**
       * Get the value of role
       */ 
-     public function getRole()
+     public static  function getRole()
      {
-          return $this->role;
+          return self::$role;
      }
 
-     /**
-      * Set the value of role
-      *
-      * @return  self
-      */ 
-     public function setRole($role)
+     
+     public static function setRole($role)
      {
-          $this->role = $role;
-
-          return $this;
+          self::$role = $role;  
      }
 
      public function insert(){
           //die(parent::$table);
-          $sql="INSERT INTO  ".parent::table()."  (`login`, `password`,  `role`)
+          $sql="INSERT INTO  ".parent::table()."  (`login`, `password`,  `roles`)
                VALUES ( ?, ?, ?);";
          return parent::database()->executeUpdate($sql,[
                                                   $this->login,$this->password,self::$role]);

@@ -20,12 +20,12 @@
             <tbody>
             <?php foreach($classes as $value):?>
                 <tr>
-                    <td  style="width:15%"><?=$value['filiere']?></td>
-                    <td  style="width:15%"><?=$value['niveau']?></td>
-                    <td  style="width:25%"><?=$value['libelle']?></td>
+                    <td  style="width:15%"><?=$value->getFiliere()?></td>
+                    <td  style="width:15%"><?=$value->getNiveau()?></td>
+                    <td  style="width:25%"><?=$value->getLibelle()?></td>
                     <td  style="width:45%">
-                        <a name="" id="" class="btn btn-outline-success text-dark btn-xs" href="#" role="button">Details</a>
-                        <a name="" id="" class="btn btn-outline-warning text-dark btn-xs" href="#" role="button">Edition</a>
+                        <a name="" id="" class="btn btn-outline-success text-dark btn-xs" href="<?=WEB_URL?>/cours-classe/<?=$value->getId()?>" role="button">Cours</a>
+                        <a name="" id="" class="btn btn-outline-warning text-dark btn-xs" href="<?=WEB_URL?>/classe-up/<?=$value->getId()?>" role="button">Edition</a>
                         <a name="" id="" class="btn btn-outline-danger text-dark" href="#" role="button">Supprimer</a>
                     </td>
                 </tr>

@@ -9,7 +9,6 @@ abstract class Model implements IModel{
     }
 
     
-    
     public function insert(){
         
     }
@@ -31,16 +30,24 @@ abstract class Model implements IModel{
     }
     public static  function selectAll(){
            $sql="select *  from  ".self::table();
-           return self::database()->executeSelect($sql);
-           
+            self::database()->setClassName(get_called_class()) ; 
+            return self::database()->executeSelect($sql);
          
     }
     public static  function selectById(int $id){
          $sql="select *  from ".self::table()."  where id=?";
+         
+         self::database()->setClassName(get_called_class()) ;
          return self::database()->executeSelect($sql,[$id],true);
         
     }
-    public static  function selectWhere(string $sql,array $data=[],$single=false){
+    public static  function selectWhere(string $sql,array $data=[],$single=false,string  $className=""){
+        if(empty($className)){
+            self::database()->setClassName(get_called_class()) ;
+        }else{
+            self::database()->setClassName($className);
+        }
+        
         return self::database()->executeSelect($sql,$data,$single);
     }
 
